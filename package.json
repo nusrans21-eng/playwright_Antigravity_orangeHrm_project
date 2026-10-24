@@ -1,0 +1,48 @@
+{
+  "name": "orangehrm-playwright-ts",
+  "version": "1.0.0",
+  "description": "OrangeHRM Playwright TypeScript POM Automation Framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:valid": "cross-env PLAYWRIGHT_HTML_OUTPUT_DIR=reports/valid-login playwright test tests/validLogin.spec.ts",
+    "test:invalid": "cross-env PLAYWRIGHT_HTML_OUTPUT_DIR=reports/invalid-login playwright test tests/invalidLogin.spec.ts",
+    "test:empty": "cross-env PLAYWRIGHT_HTML_OUTPUT_DIR=reports/empty-login playwright test tests/emptyLogin.spec.ts",
+    "test:each": "npm run test:valid && npm run test:invalid && npm run test:empty",
+    "test:admin": "cross-env PLAYWRIGHT_HTML_OUTPUT_DIR=reports/admin-user playwright test tests/adminUser.spec.ts",
+    "test:admin:add": "cross-env PLAYWRIGHT_HTML_OUTPUT_DIR=reports/admin-add playwright test tests/adminUser.spec.ts --grep \"Add Scenarios\"",
+    "test:admin:editdelete": "cross-env PLAYWRIGHT_HTML_OUTPUT_DIR=reports/admin-editdelete playwright test tests/adminUser.spec.ts --grep \"Edit & Delete Scenarios\"",
+    "test:admin:list": "cross-env PLAYWRIGHT_HTML_OUTPUT_DIR=reports/admin-list playwright test tests/adminUser.spec.ts --grep \"List Scenarios\"",
+    "test:admin:search": "cross-env PLAYWRIGHT_HTML_OUTPUT_DIR=reports/admin-search playwright test tests/adminUser.spec.ts --grep \"Search Scenarios\"",
+    "test:myinfo": "cross-env PLAYWRIGHT_HTML_OUTPUT_DIR=reports/my-info playwright test tests/myInfo.spec.ts",
+    "test:myinfo:personal": "cross-env PLAYWRIGHT_HTML_OUTPUT_DIR=reports/myinfo-personal playwright test tests/myInfo.spec.ts --grep \"Area 1: Personal Details\"",
+    "test:myinfo:contact": "cross-env PLAYWRIGHT_HTML_OUTPUT_DIR=reports/myinfo-contact playwright test tests/myInfo.spec.ts --grep \"Area 2: Contact Details\"",
+    "test:myinfo:password": "cross-env PLAYWRIGHT_HTML_OUTPUT_DIR=reports/myinfo-password playwright test tests/myInfo.spec.ts --grep \"Area 9: Change Password\"",
+    "report": "playwright show-report",
+    "report:valid": "playwright show-report reports/valid-login",
+    "report:invalid": "playwright show-report reports/invalid-login",
+    "report:empty": "playwright show-report reports/empty-login",
+    "report:admin": "playwright show-report reports/admin-user",
+    "report:admin:add": "playwright show-report reports/admin-add",
+    "report:admin:editdelete": "playwright show-report reports/admin-editdelete",
+    "report:admin:list": "playwright show-report reports/admin-list",
+    "report:admin:search": "playwright show-report reports/admin-search",
+    "report:myinfo": "playwright show-report reports/my-info"
+  },
+  "keywords": [
+    "playwright",
+    "typescript",
+    "page-object-model",
+    "orangehrm",
+    "testing",
+    "automation"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.50.0",
+    "@types/node": "^22.13.0",
+    "cross-env": "^7.0.3",
+    "typescript": "^5.7.3"
+  }
+}
